@@ -1,3 +1,5 @@
+import { fullProfile, researchJourney, currentFocus, professionalInterests, technicalAreas, professionalDirection } from '../data/positioning';
+import { professionalExperience } from '../data/professional';
 import { motion } from 'framer-motion';
 import {
   GraduationCap,
@@ -16,40 +18,35 @@ import {
 
 const education = [
   {
-    Degree: 'Ph.D. in Chemical Engineering',
-    Institution: 'National Institute of Technology, Raipur',
+    degree: 'Ph.D. in Chemical Engineering',
+    description: 'Research focused on Molecular Dynamics, computational materials science, and AI-assisted molecular simulation.',
+    status: 'Completed',
+    institution: 'Institute of Chemical Technology, Mumbai',
+    university: 'Institute of Chemical Technology, Mumbai',
     period: '2021 – 2026',
-    focus: 'Molecular Dynamics Simulations, Computational Chemistry, AI for Materials Science',
+    thesis: 'Artificial Intelligence Assisted Molecular Dynamics Simulation of Carboxymethyl Cellulose–Polyvinyl Alcohol Click Hydrogels for Various Applications',
   },
   {
     degree: 'M.Tech in Chemical Engineering',
-	institution: 'Rajabazar Science College',
-    University: 'University of Calcutta',
+    description: 'The project was originally planned as experimental research. Because much of the second year coincided with COVID-19-related restrictions on laboratory access, the work focused primarily on an extensive literature review and theoretical study of the proposed experimental research.',
+    university: 'University of Calcutta',
     period: '2019 – 2021',
-    focus: 'Process Engineering & Computational Methods',
+    thesis: 'Biocatalytic Production of Essential Fatty Acids in Ionic Liquid/Surfactant Mixed System',
   },
   {
-    Degree: 'B.Tech in Chemical Engineering',
-	institution: 'Calcutta Institute of Technology',
-    University: 'Maulana Abul Kalam Azad University of Technology',
+    degree: 'B.Tech in Chemical Engineering',
+    description: 'Undergraduate research focused on experimental Chemical Engineering.',
+    university: 'Maulana Abul Kalam Azad University of Technology',
     period: '2015 – 2019',
-    focus: 'Chemical Engineering Fundamentals',
   },
 ];
 
-const researchInterests = [
-  { icon: Atom, title: 'Molecular Dynamics Simulations', desc: 'Atomistic and coarse-grained simulations of soft materials, polymers, and biomolecular systems using GROMACS and LAMMPS.' },
-  { icon: Brain, title: 'AI & Machine Learning', desc: 'Reservoir computing, deep learning, and generative AI for property prediction and molecular design.' },
-  { icon: FlaskConical, title: 'Hydrogels & Soft Materials', desc: 'Computational design of thiol-ene click-crosslinked hydrogels for drug delivery and biomedical applications.' },
-  { icon: Zap, title: 'Energy Materials', desc: 'Eutectogels and electrolyte systems for lithium-ion batteries and next-generation energy storage.' },
-  { icon: Leaf, title: 'Environmental Engineering', desc: 'Sustainable materials for pollutant adsorption, wastewater treatment, and environmental remediation.' },
-  { icon: Beaker, title: 'Food & Nutraceutical Science', desc: 'Molecular-level investigation of food systems, bioactive compounds, and nutraceutical formulations.' },
-];
+const researchInterests = professionalInterests.map((item, i) => ({ ...item, icon: [Brain, FlaskConical, Zap, Beaker, Leaf, Atom, Brain][i] }));
 
 const achievements = [
   '13+ SCI publications in high-impact journals',
   '3 copyrights for computational tools and frameworks',
-  '80+ citations across published research',
+  '90+ citations across published research',
   'Multiple international collaborations across research domains',
   'Developed AI-MD integration frameworks for materials discovery',
   'Published in ACS, Elsevier, Wiley, and Springer journals',
@@ -76,7 +73,7 @@ const AboutPage = () => {
             About <span className="gradient-text">Me</span>
           </h1>
           <p className="text-text-secondary text-sm max-w-lg mx-auto">
-            A passionate researcher bridging computational science, molecular simulations, and artificial intelligence for advanced materials discovery.
+            Research Scientist working at the intersection of Artificial Intelligence, scientific computing, molecular simulation, and industrial R&D.
           </p>
         </motion.div>
 
@@ -94,7 +91,7 @@ const AboutPage = () => {
                 <div className="relative">
                   <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-electric-blue via-deep-blue to-purple opacity-60 blur-sm" />
                   <img
-                    src="./images/Profile.png"
+                    src={`${import.meta.env.BASE_URL}images/Profile.png`}
                     alt="Rontu Das"
                     className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover border-2 border-black"
                   />
@@ -102,13 +99,13 @@ const AboutPage = () => {
               </div>
               <h2 className="text-2xl font-bold text-center mb-1">Rontu Das</h2>
               <p className="text-electric-blue text-sm font-medium text-center mb-6">
-                Computational Chemist & MD Researcher
+                AI for Science | Agentic AI | Scientific Computing
               </p>
               <div className="space-y-3">
                 {[
-                  { icon: GraduationCap, text: 'PhD Researcher, Chemical Engineering' },
-                  { icon: MapPin, text: 'NIT Raipur, India' },
-                  { icon: Mail, text: 'rontudas.chem@gmail.com' },
+                  { icon: GraduationCap, text: 'Research Scientist' },
+                  { icon: MapPin, text: 'Bengaluru, Karnataka, India' },
+                  { icon: Mail, text: 'rd.rontu1711@gmail.com' },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-3 text-sm text-text-secondary">
                     <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
@@ -129,29 +126,63 @@ const AboutPage = () => {
             className="lg:col-span-3 space-y-6"
           >
             <div className="glass-card rounded-2xl p-6 sm:p-8 hover-card">
-              <h3 className="text-lg font-semibold mb-4 gradient-text-blue">Full Profile</h3>
-              <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                I am a PhD researcher in Chemical Engineering at the National Institute of Technology, Raipur, specializing in Molecular Dynamics Simulations, Computational Chemistry, Artificial Intelligence, and Materials Informatics.
-              </p>
-              <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                My research focuses on developing AI-assisted molecular simulation frameworks for hydrogels, eutectogels, sustainable solvents, drug delivery systems, and advanced functional materials. I integrate atomistic simulations with machine learning and deep learning to accelerate materials discovery and design.
-              </p>
-              <p className="text-text-secondary text-sm leading-relaxed">
-                With 13+ SCI publications in high-impact journals including ACS, Elsevier, Wiley, and Springer, my work bridges the gap between computational chemistry and practical materials engineering across biomedical, energy, environmental, and food engineering applications.
-              </p>
+              <h3 className="text-lg font-semibold mb-4 gradient-text-blue">About Me</h3>
+              {fullProfile.map((paragraph) => (
+                <p key={paragraph} className="text-text-secondary text-sm leading-relaxed mb-4 last:mb-0">{paragraph}</p>
+              ))}
             </div>
 
             <div className="glass-card rounded-2xl p-6 sm:p-8 hover-card">
               <h3 className="text-lg font-semibold mb-4 gradient-text-blue">Research Journey</h3>
-              <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                My research journey began during my M.Tech, where I was first introduced to molecular dynamics simulations and their potential for understanding materials at the atomic level. This sparked a deep interest in computational approaches to materials design.
-              </p>
-              <p className="text-text-secondary text-sm leading-relaxed">
-                During my PhD, I expanded into AI-assisted molecular simulations, developing novel frameworks that combine reservoir computing, machine learning, and deep learning with traditional MD simulations to predict structural and transport properties of complex materials systems.
-              </p>
+              {researchJourney.map((paragraph) => (
+                <p key={paragraph} className="text-text-secondary text-sm leading-relaxed mb-4 last:mb-0">{paragraph}</p>
+              ))}
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="mb-20"
+        >
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
+            Professional <span className="gradient-text">Experience</span>
+          </h2>
+          <div className="max-w-4xl mx-auto glass-card rounded-2xl p-6 sm:p-8 hover-card">
+            <h3 className="text-lg font-semibold text-white mb-1">{professionalExperience.role}</h3>
+            <p className="text-electric-blue text-sm font-medium">{professionalExperience.organization}</p>
+            <p className="text-yellow-400 text-xs font-medium mt-2 mb-4">{professionalExperience.period}</p>
+            <p className="text-text-secondary text-sm leading-relaxed mb-6">{professionalExperience.focus}</p>
+            <h4 className="text-sm font-semibold text-white mb-3">Responsibilities and Contributions</h4>
+            <ul className="space-y-3">
+              {professionalExperience.highlights.map((highlight) => (
+                <li key={highlight} className="flex items-start gap-3 text-sm text-text-secondary">
+                  <span className="w-1.5 h-1.5 rounded-full bg-electric-blue shrink-0 mt-2" />
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
+
+        <section className="mb-20" aria-labelledby="current-focus">
+          <h2 id="current-focus" className="text-2xl sm:text-3xl font-bold mb-8 text-center">Current Professional <span className="gradient-text">Focus</span></h2>
+          <div className="grid sm:grid-cols-2 gap-5">
+            {currentFocus.map((item) => <div key={item.title} className="glass-card rounded-2xl p-6"><h3 className="text-lg font-semibold mb-3 text-electric-blue">{item.title}</h3><p className="text-sm text-text-secondary leading-relaxed">{item.description}</p></div>)}
+          </div>
+        </section>
+        <section className="mb-20" aria-labelledby="technical-areas">
+          <h2 id="technical-areas" className="text-2xl sm:text-3xl font-bold mb-8 text-center">Technical <span className="gradient-text">Areas</span></h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {technicalAreas.map((group) => <div key={group.title} className="glass-card rounded-2xl p-6"><h3 className="font-semibold mb-4">{group.title}</h3><ul className="space-y-2 text-sm text-text-secondary">{group.items.map((item) => <li key={item}>{item}</li>)}</ul></div>)}
+          </div>
+        </section>
+        <section className="mb-20 max-w-4xl mx-auto glass-card rounded-2xl p-6 sm:p-8" aria-labelledby="professional-direction">
+          <h2 id="professional-direction" className="text-2xl font-bold mb-6 gradient-text">Professional Direction</h2>
+          {professionalDirection.map((paragraph) => <p key={paragraph} className="text-sm text-text-secondary leading-relaxed mb-4 last:mb-0">{paragraph}</p>)}
+        </section>
 
         {/* Education */}
         <motion.div
@@ -178,12 +209,23 @@ const AboutPage = () => {
                   </div>
                   <div>
                     <h3 className="text-base font-semibold text-white mb-1">{edu.degree}</h3>
-                    <p className="text-electric-blue text-sm font-medium mb-1">{edu.institution}</p>
-                    <div className="flex items-center gap-2 text-text-secondary text-xs mb-2">
+                    {edu.institution && (
+                      <p className="text-electric-blue text-sm font-medium mb-0.5">{edu.institution}</p>
+                    )}
+                    {edu.university && edu.university !== edu.institution && (
+                      <p className="text-electric-blue text-xs mb-1">{edu.university}</p>
+                    )}
+                    <div className="flex items-center gap-2 text-yellow-400 text-xs mb-2 mt-1 font-medium">
                       <Calendar size={12} />
                       <span>{edu.period}</span>
                     </div>
-                    <p className="text-text-secondary text-xs">{edu.focus}</p>
+                    {edu.status && <p className="text-electric-blue text-xs font-semibold mb-2">{edu.status}</p>}
+                    <p className="text-text-secondary text-sm leading-relaxed mt-3">{edu.description}</p>
+                    {edu.thesis && (
+                      <p className="text-text-secondary text-xs mt-2 italic">
+                        Thesis: {edu.thesis}
+                      </p>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -199,7 +241,7 @@ const AboutPage = () => {
           className="mb-20"
         >
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
-            Research <span className="gradient-text">Interests</span>
+            Core Professional <span className="gradient-text">Interests</span>
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {researchInterests.map((item, i) => {

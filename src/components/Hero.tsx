@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple/5 rounded-full blur-[128px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-8 items-center">
           {/* Left — Text */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -44,7 +44,7 @@ const Hero = () => {
               transition={{ delay: 0.5 }}
               className="text-base sm:text-lg font-medium text-white/80 mb-2"
             >
-              Computational Chemist | Molecular Dynamics Researcher
+              Research Scientist | AI for Science | Agentic AI & Scientific Computing
             </motion.p>
 
             <motion.p
@@ -53,7 +53,7 @@ const Hero = () => {
               transition={{ delay: 0.55 }}
               className="text-sm font-medium gradient-text-blue mb-6"
             >
-              AI-Assisted Molecular Simulation for Advanced Materials Design
+              Building intelligent systems that connect AI reasoning with scientific computation
             </motion.p>
 
             <motion.p
@@ -62,9 +62,7 @@ const Hero = () => {
               transition={{ delay: 0.6 }}
               className="text-text-secondary text-sm sm:text-[15px] leading-relaxed mb-4 max-w-xl"
             >
-              I develop computational frameworks that integrate Molecular
-              Dynamics simulations, Artificial Intelligence, and Machine Learning
-              to accelerate the discovery and design of advanced materials.
+              I develop AI-agent-driven scientific workflows for industrial R&D, connecting large-language-model reasoning with scientific software, knowledge sources, cloud infrastructure, and computational tools.
             </motion.p>
 
             <motion.p
@@ -73,9 +71,7 @@ const Hero = () => {
               transition={{ delay: 0.65 }}
               className="text-text-secondary text-sm sm:text-[15px] leading-relaxed mb-8 max-w-xl"
             >
-              My research focuses on hydrogels, eutectogels, energy materials,
-              extraction systems, food engineering, and AI-driven materials
-              design.
+              My work combines Artificial Intelligence, Agentic AI, molecular simulation, materials science, and scientific computing to automate complex research workflows and accelerate scientific problem solving.
             </motion.p>
 
             <motion.div
@@ -85,17 +81,17 @@ const Hero = () => {
               className="flex flex-wrap gap-3"
             >
               <Link
-                to="/research"
+                to="/projects"
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-electric-blue to-deep-blue text-white font-medium text-sm hover:shadow-lg hover:shadow-electric-blue/20 transition-all duration-300 hover:-translate-y-0.5"
               >
-                View My Research
+                Explore My Work
                 <ArrowRight
                   size={16}
                   className="group-hover:translate-x-1 transition-transform"
                 />
               </Link>
               <a
-                href="./CV_Rontu_Das.pdf"
+                href={`${import.meta.env.BASE_URL}CV_Rontu_Das.pdf`}
                 download
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-white font-medium text-sm hover:bg-white/5 hover:border-white/20 transition-all duration-300 hover:-translate-y-0.5"
               >
@@ -113,7 +109,7 @@ const Hero = () => {
             className="relative flex items-center justify-center"
           >
             {/* Main image container */}
-            <div className="relative w-full max-w-lg mx-auto">
+            <div className="relative w-full max-w-2xl mx-auto">
               {/* Outer glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/10 via-purple/10 to-magenta/10 rounded-2xl blur-3xl" />
 
@@ -128,9 +124,9 @@ const Hero = () => {
                 className="relative rounded-2xl overflow-hidden border border-white/5"
               >
                 <img
-                  src="./images/Image1.png"
-                  alt="Molecular Dynamics Network Visualization"
-                  className="w-full h-auto object-cover"
+                  src={`${import.meta.env.BASE_URL}images/ChatGPT Image Sep 17, 2026, 03_59_57 PM.png`}
+                  alt="Scientific computing and AI visualization"
+                  className="block w-full h-auto object-cover"
                   loading="eager"
                 />
                 {/* Gradient overlay */}

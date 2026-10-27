@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Local source documents used to prepare website content
+/Published_manuscript/
+/PORTFOLIO_REPORT-sim-agent.md
+/PROJECT_REPORT-AI-Research-Agent.md
+/REPORT-*.md
+/WEBSITE_CONTENT_AI_FOR_SCIENCE_UPDATE_V2.md
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -1,52 +1,11 @@
+import { currentProjects } from '../data/currentProjects';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { GitHubRepositoryLinks } from './GitHubRepositoryLinks';
 
-const projects = [
-  {
-    slug: 'biomedical-healthcare-materials',
-    image: './images/Image2.png',
-    title: 'Biomedical & Healthcare Materials',
-    description:
-      'AI-assisted molecular simulation of hydrogels for drug delivery, tissue engineering, wound healing, and biomedical applications.',
-  },
-  {
-    slug: 'sustainable-energy-materials',
-    image: './images/Image3.png',
-    title: 'Sustainable Energy Materials',
-    description:
-      'Molecular design of eutectogels and electrolyte materials for next-generation lithium-ion batteries.',
-  },
-  {
-    slug: 'environmental-engineering',
-    image: './images/Image4.png',
-    title: 'Environmental Engineering',
-    description:
-      'Simulation-driven development of sustainable materials for pollutant adsorption and wastewater treatment.',
-  },
-  {
-    slug: 'extraction-separation-processes',
-    image: './images/Image5.png',
-    title: 'Extraction & Separation Processes',
-    description:
-      'Molecular-level solvent screening and extraction optimization for high-value bioactive compounds.',
-  },
-  {
-    slug: 'food-nutraceutical-engineering',
-    image: './images/Image6.png',
-    title: 'Food & Nutraceutical Engineering',
-    description:
-      'Computational investigation of food systems, nutraceutical compounds, and bioactive ingredient interactions.',
-  },
-  {
-    slug: 'ai-for-materials-science',
-    image: './images/Image7.png',
-    title: 'AI for Materials Science',
-    description:
-      'Machine learning and molecular simulation integration for predictive materials discovery.',
-  },
-];
+const orderedProjects = currentProjects.map((project) => ({ ...project, title: project.homeTitle }));
 
 const Projects = () => {
   const ref = useRef(null);
@@ -64,17 +23,15 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Featured{' '}
-            <span className="gradient-text">Research Projects</span>
+            Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-text-secondary text-sm max-w-lg mx-auto">
-            Exploring molecular simulations, artificial intelligence, and
-            advanced materials design across multiple research domains.
+            Selected work across Agentic AI, cloud scientific computing, and polymer modelling frameworks.
           </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {projects.map((project, i) => (
+          {orderedProjects.map((project, i) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
@@ -86,7 +43,7 @@ const Projects = () => {
               <div className="relative h-48 overflow-hidden">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={project.imageAlt ?? project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
@@ -113,10 +70,15 @@ const Projects = () => {
                     className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
                   />
                 </Link>
+                <div className="mt-5 border-t border-white/5 pt-4">
+                  <p className="mb-2 text-xs text-text-secondary">GitHub repositories</p>
+                  <GitHubRepositoryLinks repositories={project.repositories} />
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
+        <div className="text-center mt-8"><Link to="/projects" className="inline-flex items-center gap-2 text-sm font-medium text-electric-blue hover:text-white">View All Projects <ArrowUpRight size={16} /></Link></div>
       </div>
     </section>
   );

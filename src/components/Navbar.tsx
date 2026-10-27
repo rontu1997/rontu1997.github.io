@@ -39,11 +39,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [location.pathname]);
-
   const isActive = (path: string) => {
     if (path === '/') return location.pathname === '/';
     return location.pathname.startsWith(path);
@@ -77,7 +72,7 @@ const Navbar = () => {
                     RONTU DAS
                   </div>
                   <div className="text-[10px] font-medium tracking-widest text-text-secondary uppercase">
-                    Computational Chemist
+                    AI for Science | Agentic AI
                   </div>
                 </div>
               </motion.div>
@@ -119,7 +114,7 @@ const Navbar = () => {
             <div className="flex items-center gap-2">
               <div className="hidden sm:flex items-center gap-1">
                 <motion.a
-                  href="https://github.com/rontudas"
+                  href="https://github.com/rontu1997"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.15, y: -1 }}
@@ -130,7 +125,7 @@ const Navbar = () => {
                   <GithubIcon size={16} />
                 </motion.a>
                 <motion.a
-                  href="https://linkedin.com/in/rontudas"
+                  href="https://www.linkedin.com/in/rontu-das-a7b202164/"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.15, y: -1 }}
@@ -141,7 +136,7 @@ const Navbar = () => {
                   <LinkedinIcon size={16} />
                 </motion.a>
                 <motion.a
-                  href="mailto:rontudas.chem@gmail.com"
+                  href="mailto:rd.rontu1711@gmail.com"
                   whileHover={{ scale: 1.15, y: -1 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary hover:text-white hover:bg-white/5 transition-all duration-300"
@@ -189,6 +184,7 @@ const Navbar = () => {
                 >
                   <Link
                     to={item.path}
+                    onClick={() => setMobileOpen(false)}
                     className={`text-lg font-medium transition-all ${
                       isActive(item.path)
                         ? 'gradient-text'
@@ -201,7 +197,7 @@ const Navbar = () => {
               ))}
               <div className="flex items-center gap-4 mt-6">
                 <a
-                  href="https://github.com/rontudas"
+                  href="https://github.com/rontu1997"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-text-secondary hover:text-white transition-colors"
@@ -209,7 +205,7 @@ const Navbar = () => {
                   <GithubIcon size={20} />
                 </a>
                 <a
-                  href="https://linkedin.com/in/rontudas"
+                  href="https://www.linkedin.com/in/rontu-das-a7b202164/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-text-secondary hover:text-white transition-colors"
@@ -217,7 +213,7 @@ const Navbar = () => {
                   <LinkedinIcon size={20} />
                 </a>
                 <a
-                  href="mailto:rontudas.chem@gmail.com"
+                  href="mailto:rd.rontu1711@gmail.com"
                   className="text-text-secondary hover:text-white transition-colors"
                 >
                   <Mail size={20} />

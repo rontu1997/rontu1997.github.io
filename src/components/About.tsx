@@ -1,3 +1,4 @@
+import { homeAbout, aboutGroups } from '../data/positioning';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -23,8 +24,7 @@ const About = () => {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-text-secondary text-sm max-w-md mx-auto">
-            Bridging computational science and artificial intelligence for
-            materials discovery
+            Connecting Artificial Intelligence with scientific tools, simulations, and industrial R&D
           </p>
         </motion.div>
 
@@ -42,7 +42,7 @@ const About = () => {
                 <div className="relative">
                   <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-electric-blue via-deep-blue to-purple opacity-60 blur-sm" />
                   <img
-                    src="./images/Profile.png"
+                    src={`${import.meta.env.BASE_URL}images/Profile.png`}
                     alt="Rontu Das"
                     className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full object-cover border-2 border-black"
                   />
@@ -52,15 +52,15 @@ const About = () => {
               {/* Name */}
               <h3 className="text-xl font-bold text-center mb-1">Rontu Das</h3>
               <p className="text-electric-blue text-sm font-medium text-center mb-6">
-                Computational Chemist
+                Research Scientist — AI for Science & Scientific Computing
               </p>
 
               {/* Info */}
               <div className="space-y-3">
                 {[
-                  { icon: GraduationCap, text: 'PhD Researcher' },
-                  { icon: MapPin, text: 'India' },
-                  { icon: Mail, text: 'rontudas.chem@gmail.com' },
+                  { icon: GraduationCap, text: 'Research Scientist' },
+                  { icon: MapPin, text: 'Bengaluru, Karnataka, India' },
+                  { icon: Mail, text: 'rd.rontu1711@gmail.com' },
                 ].map(({ icon: Icon, text }) => (
                   <div
                     key={text}
@@ -95,47 +95,14 @@ const About = () => {
               <h3 className="text-lg font-semibold mb-4 gradient-text-blue">
                 About Me
               </h3>
-              <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                I am a PhD researcher in Chemical Engineering specializing in
-                Molecular Dynamics Simulations, Computational Chemistry,
-                Artificial Intelligence, and Materials Informatics.
-              </p>
-              <p className="text-text-secondary text-sm leading-relaxed">
-                My work focuses on AI-assisted molecular simulation frameworks
-                for hydrogels, eutectogels, sustainable solvents, drug delivery
-                systems, and advanced functional materials.
-              </p>
+              {homeAbout.map((paragraph) => (
+                <p key={paragraph} className="text-text-secondary text-sm leading-relaxed mb-4 last:mb-0">{paragraph}</p>
+              ))}
             </div>
 
             {/* Research highlights — updated content per spec */}
             <div className="grid sm:grid-cols-2 gap-4">
-              {[
-                {
-                  title: 'Research Focus',
-                  items: ['Molecular Simulations', 'AI-Driven Materials Design'],
-                  gradient: 'from-electric-blue to-deep-blue',
-                },
-                {
-                  title: 'Methodology',
-                  items: ['Molecular Dynamics', 'Machine Learning', 'Deep Learning'],
-                  gradient: 'from-deep-blue to-purple',
-                },
-                {
-                  title: 'Applications',
-                  items: [
-                    'Biomedical Materials',
-                    'Energy Storage',
-                    'Environmental Engineering',
-                    'Food Engineering',
-                  ],
-                  gradient: 'from-purple to-magenta',
-                },
-                {
-                  title: 'Impact',
-                  items: ['13+ SCI Publications', '3 Copyrights'],
-                  gradient: 'from-magenta to-electric-blue',
-                },
-              ].map((item, i) => (
+              {aboutGroups.map((item, i) => (
                 <motion.div
                   key={item.title}
                   initial={{ opacity: 0, y: 20 }}
@@ -144,7 +111,7 @@ const About = () => {
                   className="glass-card rounded-xl p-4 hover-card"
                 >
                   <div
-                    className={`w-8 h-1 rounded-full bg-gradient-to-r ${item.gradient} mb-3`}
+                    className={`w-8 h-1 rounded-full bg-gradient-to-r from-electric-blue to-purple mb-3`}
                   />
                   <h4 className="text-sm font-semibold text-white mb-2">
                     {item.title}
@@ -156,7 +123,7 @@ const About = () => {
                         className="flex items-center gap-2 text-xs text-text-secondary"
                       >
                         <span
-                          className={`w-1 h-1 rounded-full bg-gradient-to-r ${item.gradient} shrink-0`}
+                          className={`w-1 h-1 rounded-full bg-gradient-to-r from-electric-blue to-purple shrink-0`}
                         />
                         {text}
                       </li>

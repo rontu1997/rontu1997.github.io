@@ -86,7 +86,39 @@ const domains = [
       'Data-driven computational materials informatics',
     ],
   },
+  {
+    icon: Cpu,
+    color: 'text-electric-blue',
+    bg: 'from-electric-blue/10 to-purple/5',
+    title: "Agentic AI for Industrial R&D",
+    description: "Development of AI-agent-driven scientific computing workflows that connect Microsoft Discovery and Microsoft Foundry with cloud-deployed and MCP-enabled scientific software for industrial research and development.",
+    details: [
+  "Scientific AI agent development in Microsoft Discovery",
+  "Advanced agent development and customization in Microsoft Foundry",
+  "Knowledge-base integration for domain-specific retrieval and grounding",
+  "Web-search integration for external information retrieval",
+  "Agent memory for multi-step workflow continuity",
+  "Agent performance optimization through instruction, tool, and workflow refinement",
+  "Guardrail implementation for reliable and controlled tool execution",
+  "Docker-based scientific software containerization",
+  "Microsoft Azure Container Registry deployment",
+  "MCP server development for local scientific applications",
+  "Agent access to GROMACS, LAMMPS, Quantum ESPRESSO, and OpenFOAM",
+  "Automated orchestration of scientific simulations and downstream analysis"
+],
+  },
 ];
+
+const infrastructure = {
+  icon: Cpu,
+  title: 'Scientific Tool Infrastructure',
+  color: 'text-electric-blue',
+  bg: 'from-electric-blue/10 to-purple/5',
+  description: 'Cloud and local infrastructure connecting AI agents with scientific applications for computational execution and downstream analysis.',
+  details: ['Docker-based scientific application containers', 'Microsoft Azure and Azure Container Registry', 'Model Context Protocol (MCP) server development', 'Standardized interfaces for local scientific tools', 'GROMACS, LAMMPS, Quantum ESPRESSO, and OpenFOAM integration'],
+};
+const domainOrder = ['Agentic AI for Industrial R&D', 'Scientific Tool Infrastructure', 'AI for Materials Science', 'Sustainable Energy Materials', 'Biomedical & Healthcare Materials', 'Environmental Engineering', 'Extraction & Separation Processes', 'Food & Nutraceutical Engineering'];
+const orderedDomains = [...domains, infrastructure].sort((a, b) => domainOrder.indexOf(a.title) - domainOrder.indexOf(b.title));
 
 const ResearchPage = () => {
   return (
@@ -100,16 +132,16 @@ const ResearchPage = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            Research <span className="gradient-text">Domains</span>
+            Research &amp; <span className="gradient-text">Technical Domains</span>
           </h1>
           <p className="text-text-secondary text-sm max-w-lg mx-auto">
-            My research spans six interconnected domains, unified by computational approaches, molecular simulations, and AI-driven methodology.
+            My work spans Agentic AI, scientific computing, AI-assisted molecular simulation, and computational materials research. The unifying goal is to connect Artificial Intelligence with scientific knowledge and computational tools to accelerate complex R&D workflows.
           </p>
         </motion.div>
 
         {/* Domain Cards */}
         <div className="space-y-8">
-          {domains.map((domain, i) => {
+          {orderedDomains.map((domain, i) => {
             const Icon = domain.icon;
             return (
               <motion.div

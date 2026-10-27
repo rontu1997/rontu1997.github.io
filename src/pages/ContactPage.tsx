@@ -15,10 +15,10 @@ const LinkedinIcon = ({ size = 16 }: { size?: number }) => (
 );
 
 const socials = [
-  { icon: GithubIcon, href: 'https://github.com/rontudas', label: 'GitHub', username: '@rontudas' },
-  { icon: LinkedinIcon, href: 'https://linkedin.com/in/rontudas', label: 'LinkedIn', username: '/in/rontudas' },
-  { icon: GraduationCap, href: 'https://scholar.google.com', label: 'Google Scholar', username: 'Rontu Das' },
-  { icon: Mail, href: 'mailto:rontudas.chem@gmail.com', label: 'Email', username: 'rontudas.chem@gmail.com' },
+  { icon: GithubIcon, href: 'https://github.com/rontu1997', label: 'GitHub', username: '@rontu1997' },
+  { icon: LinkedinIcon, href: 'https://www.linkedin.com/in/rontu-das-a7b202164/', label: 'LinkedIn', username: '/in/rontu-das-a7b202164' },
+  { icon: GraduationCap, href: 'https://scholar.google.com/citations?user=oTjA6wcAAAAJ&hl=en&oi=ao', label: 'Google Scholar', username: 'Rontu Das' },
+  { icon: Mail, href: 'mailto:rd.rontu1711@gmail.com', label: 'Email', username: 'rd.rontu1711@gmail.com' },
 ];
 
 const ContactPage = () => {
@@ -32,7 +32,7 @@ const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // For now, open mailto
-    const mailtoLink = `mailto:rontudas.chem@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
+    const mailtoLink = `mailto:rd.rontu1711@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
     window.open(mailtoLink, '_blank');
   };
 
@@ -50,7 +50,7 @@ const ContactPage = () => {
             Get In <span className="gradient-text">Touch</span>
           </h1>
           <p className="text-text-secondary text-sm max-w-lg mx-auto">
-            Interested in research collaborations, postdoctoral opportunities, or discussing computational chemistry and AI for materials science? I'd love to hear from you.
+            Interested in AI for Science, Agentic AI, scientific computing, industrial R&D automation, computational materials science, or research collaboration? Feel free to get in touch.
           </p>
         </motion.div>
 
@@ -150,8 +150,8 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p className="text-xs text-text-secondary mb-0.5">Email</p>
-                    <a href="mailto:rontudas.chem@gmail.com" className="text-sm text-white hover:text-electric-blue transition-colors">
-                      rontudas.chem@gmail.com
+                    <a href="mailto:rd.rontu1711@gmail.com" className="text-sm text-white hover:text-electric-blue transition-colors">
+                      rd.rontu1711@gmail.com
                     </a>
                   </div>
                 </div>
@@ -161,7 +161,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p className="text-xs text-text-secondary mb-0.5">Location</p>
-                    <p className="text-sm text-white">NIT Raipur, India</p>
+                    <p className="text-sm text-white">Bengaluru, Karnataka, India</p>
                   </div>
                 </div>
               </div>

@@ -13,8 +13,7 @@ const Footer = () => {
               <span className="text-white font-medium">Rontu Das</span>
             </p>
             <p className="text-xs text-text-secondary/60 mt-1">
-              Computational Chemistry | Molecular Dynamics | AI for Materials
-              Science
+              AI for Science | Agentic AI | Scientific Computing | Molecular Simulation
             </p>
           </div>
         </div>

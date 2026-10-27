@@ -1,3 +1,4 @@
+import { softwareAreas } from '../data/positioning';
 import { motion } from 'framer-motion';
 import { Terminal, Code2, Database, Server } from 'lucide-react';
 
@@ -54,6 +55,70 @@ const software = [
       'Batch simulation campaign management',
     ],
   },
+  {
+    icon: Code2,
+    title: "Scientific R&D Agent Framework",
+    desc: "AI-agent framework for industrial R&D workflows developed across Microsoft Discovery and Microsoft Foundry. The framework extends scientific agents with web search, memory, performance optimization, guardrails, and access to computational tools.",
+    tags: [
+  "Microsoft Discovery",
+  "Microsoft Foundry",
+  "AI Agents",
+  "Web Search",
+  "Memory",
+  "Guardrails"
+],
+    features: [
+  "Scientific agent development for industrial R&D workflows",
+  "Web-search integration",
+  "Agent memory for contextual continuity",
+  "Agent instruction and workflow optimization",
+  "Tool-access orchestration",
+  "Guardrails for controlled and reliable operation"
+],
+  },
+  {
+    icon: Server,
+    title: "Cloud Scientific Tool Containers",
+    desc: "Docker-based packaging and cloud deployment of open-source scientific applications for agent-accessible computational workflows in Microsoft Discovery.",
+    tags: [
+  "Docker",
+  "Microsoft Azure",
+  "Azure Container Registry",
+  "GROMACS",
+  "LAMMPS",
+  "Quantum ESPRESSO",
+  "OpenFOAM"
+],
+    features: [
+  "Containerization of scientific simulation software",
+  "Deployment through Microsoft Azure Container Registry",
+  "Cloud-ready interfaces for agent tool access",
+  "Reusable computational environments",
+  "Support for multi-step simulation and analysis workflows"
+],
+  },
+  {
+    icon: Terminal,
+    title: "MCP Servers for Scientific Applications",
+    desc: "Model Context Protocol servers that expose local scientific applications to AI agents for tool invocation, computational execution, and downstream analysis.",
+    tags: [
+  "MCP",
+  "AI Agents",
+  "Scientific Computing",
+  "GROMACS",
+  "LAMMPS",
+  "Quantum ESPRESSO",
+  "OpenFOAM"
+],
+    features: [
+  "MCP server development for scientific applications",
+  "Standardized agent-to-tool communication",
+  "Local-PC integration with Microsoft Discovery",
+  "Agent-driven tool selection and execution",
+  "Scientific workflow orchestration",
+  "Integration of simulation outputs with downstream analysis"
+],
+  },
 ];
 
 const SoftwarePage = () => {
@@ -68,16 +133,19 @@ const SoftwarePage = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            Software & <span className="gradient-text">Tools</span>
+            Scientific AI &amp; <span className="gradient-text">Computational Tools</span>
           </h1>
           <p className="text-text-secondary text-sm max-w-lg mx-auto">
-            Open-source computational tools and workflows developed for molecular simulation research, AI integration, and high-performance computing.
+            I develop and integrate computational tools that connect Artificial Intelligence with scientific software. My work includes AI-agent tool interfaces, MCP servers, Dockerized scientific applications, cloud deployment, molecular simulation workflows, and research software.
           </p>
         </motion.div>
 
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+          {softwareAreas.map((group) => <section key={group.title} className="glass-card rounded-2xl p-6"><h2 className="font-semibold text-electric-blue mb-4">{group.title}</h2><ul className="space-y-2 text-sm text-text-secondary">{group.items.map((item) => <li key={item}>{item}</li>)}</ul></section>)}
+        </div>
         {/* Software Cards */}
         <div className="space-y-6">
-          {software.map((item, i) => {
+          {[...software.slice(4), ...software.slice(0, 4)].map((item, i) => {
             const Icon = item.icon;
             return (
               <motion.div

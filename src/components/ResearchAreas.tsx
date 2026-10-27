@@ -1,3 +1,4 @@
+import { expertise } from '../data/positioning';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
@@ -21,72 +22,41 @@ const LinkedinIcon = ({ size = 16 }: { size?: number }) => (
   </svg>
 );
 
-const researchAreas = {
-  icon: Atom,
-  title: 'Research Areas',
-  items: [
-    'Molecular Dynamics Simulations',
-    'Hydrogels & Soft Materials',
-    'Drug Delivery Systems',
-    'Electrolytes & Eutectogels',
-    'AI for Materials Science',
-  ],
-  gradient: 'from-electric-blue to-deep-blue',
+const expertiseIcons: Record<string, typeof Brain> = {
+  'Agentic AI': Brain,
+  'AI for Science': Atom,
+  'Scientific Infrastructure': Wrench,
+  'Scientific Computing': Atom,
+  'Programming & Machine Learning': Brain,
 };
 
-const aiCard = {
-  icon: Brain,
-  title: 'Artificial Intelligence',
-  items: [
-    'Reservoir Computing',
-    'Machine Learning',
-    'Deep Learning',
-    'Scientific AI',
-    'Generative AI',
-    'AI Agents',
-  ],
-  gradient: 'from-deep-blue to-purple',
-};
-
-const toolsCard = {
-  icon: Wrench,
-  title: 'Tools & Technologies',
-  items: [
-    'GROMACS',
-    'LAMMPS',
-    'Python',
-    'PyTorch',
-    'TensorFlow',
-    'Linux',
-    'Git',
-    'Docker',
-    'HPC',
-  ],
-  gradient: 'from-purple to-magenta',
-};
+const cards = expertise.map((group) => ({
+  ...group,
+  icon: expertiseIcons[group.title] ?? Brain,
+  gradient: 'from-electric-blue to-purple',
+}));
 
 const connectCard = {
   icon: MessageSquare,
   title: "Let's Connect",
-  text: 'I am always interested in discussing scientific collaborations, postdoctoral opportunities, AI for science, and computational materials research.',
+  text: 'I am interested in AI for Science, Agentic AI, scientific computing, industrial R&D automation, computational materials science, and opportunities to build intelligent systems that connect AI reasoning with scientific tools.',
   gradient: 'from-magenta to-electric-blue',
   socials: [
-    { icon: GithubIcon, href: 'https://github.com/rontudas', label: 'GitHub' },
+    { icon: GithubIcon, href: 'https://github.com/rontu1997', label: 'GitHub' },
     {
       icon: LinkedinIcon,
-      href: 'https://linkedin.com/in/rontudas',
+      href: 'https://www.linkedin.com/in/rontu-das-a7b202164/',
       label: 'LinkedIn',
     },
-    { icon: Mail, href: 'mailto:rontudas.chem@gmail.com', label: 'Email' },
+    { icon: Mail, href: 'mailto:rd.rontu1711@gmail.com', label: 'Email' },
     {
       icon: GraduationCap,
-      href: 'https://scholar.google.com',
+      href: 'https://scholar.google.com/citations?user=oTjA6wcAAAAJ&hl=en&oi=ao',
       label: 'Google Scholar',
     },
   ],
 };
 
-const cards = [researchAreas, aiCard, toolsCard];
 
 const ResearchAreas = () => {
   const ref = useRef(null);
@@ -104,16 +74,14 @@ const ResearchAreas = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Research{' '}
-            <span className="gradient-text">Areas & Skills</span>
+            <span className="gradient-text">Expertise</span>
           </h2>
           <p className="text-text-secondary text-sm max-w-md mx-auto">
-            Comprehensive expertise spanning molecular simulations, AI, and
-            modern computational tools
+            Expertise spanning Agentic AI, scientific computing, molecular simulation, and AI-assisted materials research.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {/* List-style cards */}
           {cards.map((card, i) => {
             const Icon = card.icon;
@@ -153,12 +121,15 @@ const ResearchAreas = () => {
             );
           })}
 
+        </div>
+
+        <div className="mt-8">
           {/* Connect card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="glass-card rounded-2xl p-6 hover-card"
+            className="glass-card rounded-2xl p-6 sm:p-8 hover-card max-w-3xl mx-auto"
             id="contact"
           >
             <div
@@ -170,9 +141,9 @@ const ResearchAreas = () => {
             >
               <connectCard.icon size={18} className="text-magenta" />
             </div>
-            <h3 className="text-base font-semibold text-white mb-4">
+            <h2 className="text-xl font-semibold text-white mb-4">
               {connectCard.title}
-            </h3>
+            </h2>
             <p className="text-sm text-text-secondary leading-relaxed mb-6">
               {connectCard.text}
             </p>

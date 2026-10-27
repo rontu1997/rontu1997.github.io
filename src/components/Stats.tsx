@@ -9,10 +9,10 @@ import {
 } from 'lucide-react';
 
 const stats = [
-  { icon: BookOpen, value: 10, suffix: '+', label: 'Publications' },
-  { icon: Clock, value: 4, suffix: '+', label: 'Years Research Experience' },
-  { icon: Wrench, value: 3, suffix: '+', label: 'Software Tool Development' },
-  { icon: MessageCircle, value: 80, suffix: '+', label: 'Citations' },
+  { icon: BookOpen, value: 13, suffix: '+', label: 'SCI Publications' },
+  { icon: Clock, value: 5, suffix: '+', label: 'Years Research Experience' },
+  { icon: Wrench, value: 3, suffix: '', label: 'Software Copyrights' },
+  { icon: MessageCircle, value: 90, suffix: '+', label: 'Citations' },
   { icon: Users, value: 5, suffix: '+', label: 'Collaborations' },
 ];
 
@@ -72,10 +72,10 @@ const Stats = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Research <span className="gradient-text">Statistics</span>
+            Research &amp; Professional <span className="gradient-text">Snapshot</span>
           </h2>
           <p className="text-text-secondary text-sm max-w-md mx-auto">
-            A snapshot of my research output and academic contributions
+            A snapshot of my scientific research, software development, and computational R&D experience
           </p>
         </motion.div>
 
